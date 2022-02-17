@@ -23,14 +23,7 @@ import java.util.*;
 public class ScrappingTests {
 
 //    public String category = "Travel";
-    public List<String> bookTitle = new ArrayList<> ();
-    public List<String> bookUPC = new ArrayList<> ();
-    public List<String> bookType = new ArrayList<> ();
-    public List<String> bookPriceWithTax = new ArrayList<> ();
-    public List<String> bookPriceWithoutTax = new ArrayList<> ();
-    public List<String> bookTax = new ArrayList<> ();
-    public List<String> bookAvailability = new ArrayList<> ();
-    public List<String> bookReviews = new ArrayList<> ();
+
 
     public static final String excelPath = "C:/ScrappingBooks/%s.xlsx";
 
@@ -63,7 +56,7 @@ public class ScrappingTests {
             FileOutputStream out = new FileOutputStream(new File (EXCEL_FILE_PATH));
             System.out.println (link);
             driver.navigate ().to (link);
-            count++;
+
 
             Thread.sleep (2000);
             boolean done = false;
@@ -81,6 +74,14 @@ public class ScrappingTests {
 //            if(count == 1)
 //                break;
             }
+            List<String> bookTitle = new ArrayList<> ();
+            List<String> bookUPC = new ArrayList<> ();
+            List<String> bookType = new ArrayList<> ();
+            List<String> bookPriceWithTax = new ArrayList<> ();
+            List<String> bookPriceWithoutTax = new ArrayList<> ();
+            List<String> bookTax = new ArrayList<> ();
+            List<String> bookAvailability = new ArrayList<> ();
+            List<String> bookReviews = new ArrayList<> ();
             // Navigate to each book-link and separate the information of a book in different lists
             for(String book : books){
                 System.out.println (book);
@@ -154,7 +155,8 @@ public class ScrappingTests {
 
             out.close();
             System.out.println("final ok!!!!!");
-            if(count == 2)
+            count++;
+            if(count == 3)
                 break;
         }
 
